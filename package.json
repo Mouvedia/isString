@@ -1,16 +1,16 @@
 {
-  "name": "string.isstring",
+  "name": "isstring",
   "version": "1.0.0",
   "author": "Marc G.",
-  "description": "Cross-browser String.isString()",
+  "description": "Reliable cross-browser isString",
   "main": "isString.umd.js",
   "repository": "Mouvedia/isString",
   "keywords": [
     "String",
     "type",
-	"instance",
-    "cross-browser",
-	"brand check"
+    "instance",
+    "brand",
+    "cross-browser"
   ],
   "license": "MIT",
   "bugs": "https://github.com/Mouvedia/isString/issues"
