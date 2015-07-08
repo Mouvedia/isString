@@ -1,0 +1,9 @@
+{
+  "name": "isstring",
+  "version": "1.0.2",
+  "repository": "Mouvedia/isString",
+  "main": "isString.umd.js",
+  "scripts" : [
+    "isString.umd.js"
+  ]
+}
