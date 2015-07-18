@@ -4,6 +4,10 @@
 String.isString = (function() {
     var objToString     = ({}).toString,
         strToString     = ('').toString,
+// mitigate Function.prototype.call mangling
+        hasBind         = Function.prototype.bind,
+        objToStrCall    = hasBind && objToString.call.bind(objToString),
+        strToStrCall    = hasBind && strToString.call.bind(strToString),
         hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
         isString        = function(str) {
 // The try-catch-finally construct has performance impacts due to
@@ -15,7 +19,7 @@ String.isString = (function() {
 // String.prototype.toString asserts that str's [[StringData]] internal slot
 // is a String value effectively guarding us against @@toStringTag spoofing.
 // cf http://www.ecma-international.org/ecma-262/5.1/#sec-15.5.4.2
-            strToString.call(str);
+            hasBind ? strToStrCall(str) : strToString.call(str);
             return true;
           } catch (e) {
             return false;
@@ -33,7 +37,7 @@ String.isString = (function() {
                   @if (@_jscript_version < 5.5)
                     /^\s*function\s*String\(\)\s*{\s*\[native code\]\s*}\s*$/.test(str.constructor)
                   @else @*/
-                    hasToStringTag ? isString(str) : objToString.call(str) === '[object String]'
+                    hasToStringTag ? isString(str) : (objToStrCall(str) || objToString.call(str)) === '[object String]'
                   /*@end
                 @*/
 // fallback for falsy values
