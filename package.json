@@ -1,6 +1,6 @@
 {
   "name": "isstring",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Marc G.",
   "description": "Reliable cross-browser isString",
   "main": "isString.umd.js",

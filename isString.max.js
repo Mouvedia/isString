@@ -5,7 +5,7 @@ String.isString = (function() {
     var objToString     = ({}).toString,
         strToString     = ('').toString,
 // mitigate Function.prototype.call mangling
-        hasBind         = Function.prototype.bind,
+        hasBind         = Function.prototype && Function.prototype.bind,
         objToStrCall    = hasBind && objToString.call.bind(objToString),
         strToStrCall    = hasBind && strToString.call.bind(strToString),
         hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
