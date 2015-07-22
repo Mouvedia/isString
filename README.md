@@ -2,4 +2,4 @@
 
 ###Implementation Support
 - JScript 3 (IE4+)
-- Javascript 1.3 (NN 4.06+)
+- Javascript 1.5 (NN6+)
