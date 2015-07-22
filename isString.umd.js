@@ -1,13 +1,12 @@
 ;(function (factory) {
-  if (typeof define === 'function' && define.amd) {
+  if (typeof define === 'function' && define.amd)
     define([], factory);
-  } else if (typeof exports === 'object' && !!exports && !exports.nodeType) {
+  else if (typeof exports === 'object' && !!exports && !exports.nodeType)
     module.exports = factory();
-  } else if (typeof YUI === 'function' && YUI.add)
+  else if (typeof YUI === 'function' && YUI.add)
     YUI.add('isString', factory, '1.0.4');
-  } else {
+  else
     String.isString = factory();
-  }
 })(function () {
   var objToString     = ({}).toString,
       strToString     = ('').toString,
