@@ -1,4 +1,4 @@
-(function (factory) {
+;(function (factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
   } else if (typeof exports === 'object' && !!exports && !exports.nodeType) {
@@ -9,7 +9,7 @@
 })(function () {
   var objToString     = ({}).toString,
       strToString     = ('').toString,
-      hasBind         = Function.prototype.bind,
+      hasBind         = Function.prototype && Function.prototype.bind,
       objToStrCall    = hasBind && objToString.call.bind(objToString),
       strToStrCall    = hasBind && strToString.call.bind(strToString),
       hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
