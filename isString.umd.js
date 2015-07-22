@@ -3,6 +3,8 @@
     define([], factory);
   } else if (typeof exports === 'object' && !!exports && !exports.nodeType) {
     module.exports = factory();
+  } else if (typeof YUI === 'function' && YUI.add)
+    YUI.add('isString', factory, '1.0.4');
   } else {
     String.isString = factory();
   }
