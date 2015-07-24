@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/dm/isstring.svg)]()
+[![npm](https://img.shields.io/npm/dm/isstring.svg)](http://www.npm-stats.com/~packages/isstring)
 
 # isString
 
