@@ -1,5 +1,10 @@
 # isString
 
+### Installation
+```sh
+npm install --save isstring
+```
+
 ### [Documentation](http://isstring.surge.sh/)
 
 ### Implementation Support
