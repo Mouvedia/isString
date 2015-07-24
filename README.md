@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/dm/isstring.svg)]()
+
 # isString
 
 ### Installation
