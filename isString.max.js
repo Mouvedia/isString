@@ -9,12 +9,11 @@ String.isString = (function() {
         objToStrCall    = hasBind && objToString.call.bind(objToString),
         strToStrCall    = hasBind && strToString.call.bind(strToString),
 // The try-catch-finally construct has a significant performance impact due to
-// the fact that it creates and destroys a variable at runtime.
-// In ES6-ready browsers, we are compelled to use it to thwart @@toStringTag
-// spoofing.
+// the fact that it creates and destroys a variable at runtime; yet we are
+// compelled to use it to thwart @@toStringTag spoofing.
+// Furthermore IE didn’t support it until version 5.
         hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
         isString        = function(str) {
-// Furthermore IE didn’t support it until version 5.
         /*@cc_on
           @if (@_jscript_version >= 5) @*/
           try {

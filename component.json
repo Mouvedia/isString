@@ -1,9 +1,15 @@
 {
   "name": "isstring",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": "Mouvedia/isString",
   "main": "isString.umd.js",
   "scripts" : [
-    "isString.umd.js"
+	"isString.umd.js"
+  ],
+  "moduleType": [
+	"amd",
+	"globals",
+	"node",
+	"yui"
   ]
 }

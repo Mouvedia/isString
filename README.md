@@ -12,3 +12,8 @@ npm install --save isstring
 ### Implementation Support
 - JScript 3 (IE 4+)
 - Javascript 1.5 (Gecko 0.6+)
+
+### Universal Module Definition
+- AMD
+- CJS
+- YUI

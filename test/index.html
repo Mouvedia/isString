@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>isString Unit Tests</title>
+</head>
+
+<body>
+
+<script>
+isString=function(){var t={}.toString,n="".toString,o=Function.prototype&&Function.prototype.bind,r=o&&t.call.bind(t),i=o&&n.call.bind(n),c="function"==typeof Symbol&&"symbol"==typeof Symbol.toStringTag,e=function(t){/*@cc_on@if(@_jscript_version>=5)@*/try{return o?i(t):n.call(t),!0}catch(r){return!1}/*@end@*/};return function(n){return"string"==typeof n||(n&&"object"==typeof n&&/*@cc_on@if(@_jscript_version<5.5)/^\s*function\s*String\(\)\s*{\s*\[native code\]\s*}\s*$/.test(n.constructor)@else@*/c?e(n):"[object String]"===(r(n)||t.call(n))/*@end@*/)||!1}}();
+
+var hasBind         = Function.prototype && Function.prototype.bind,
+    hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
+    phony           = function() {},
+    i               = 0;
+
+global_test_results = {
+  "passed": 0,
+  "failed": 0,
+  "total": 0,
+  "duration": 0,
+  "tests": []
+};
+
+global_test_results.tests[i] = {
+      "name": "null",
+      "result": !isString(null),
+      "message": 'null is not a string',
+      "duration": 10
+};
+global_test_results.tests[i].result ? global_test_results.passed++ : global_test_results.failed++;
+global_test_results.total++;
+global_test_results.duration += global_test_results.tests[i++].duration;
+
+/*@cc_on @if (@_jscript_version >= 5.5) @*/
+
+phony.prototype  = String.prototype;
+
+global_test_results.tests[i] = {
+      "name": "prototype",
+      "result": !isString(new phony()),
+      "message": 'phony String object is not a string',
+      "duration": 10
+};
+global_test_results.tests[i].result ? global_test_results.passed++ : global_test_results.failed++;
+global_test_results.total++;
+global_test_results.duration += global_test_results.tests[i++].duration;
+
+if (hasBind) {
+    Function.prototype.call = function() { return '[object String]'; };
+
+    global_test_results.tests[i] = {
+          "name": "Function.prototype.call",
+          "result": !isString(undefined),
+          "message": 'vulnerable to Function.prototype.call mangling',
+          "duration": 10
+    };
+    global_test_results.tests[i].result ? global_test_results.passed++ : global_test_results.failed++;
+    global_test_results.total++;
+    global_test_results.duration += global_test_results.tests[i++].duration;
+}
+
+/*@end @*/
+
+if (console && console.dir)
+    console.dir(global_test_results);
+
+</script>
+
+</body>
+</html>
