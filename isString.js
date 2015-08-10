@@ -27,7 +27,7 @@ String.isString = (function() {
                     @if (@_jscript_version < 5.5)
                         /^\s*function\s*String\(\)\s*{\s*\[native code\]\s*}\s*$/.test(str.constructor)
                     @else @*/
-                        hasToStringTag ? isString(str) : (objToStrCall(str) || objToString.call(str)) === '[object String]'
+                        hasToStringTag ? isString(str) : ((objToStrCall && objToStrCall(str)) || objToString.call(str)) === '[object String]'
                     /*@end
                 @*/
                 ) || false;
