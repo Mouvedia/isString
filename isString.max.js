@@ -2,19 +2,15 @@
 // before other scripts get the chance to tamper with them. Therefore
 // it needs to be loaded before any potentially hazardous arbitrary code.
 String.isString = (function() {
-    var objToString     = ({}).toString,
-        strToString     = ('').toString,
+    var strToString     = ('').toString,
 // mitigate Function.prototype.call mangling
         hasBind         = Function.prototype && Function.prototype.bind,
-        objToStrCall    = hasBind && objToString.call.bind(objToString),
         strToStrCall    = hasBind && strToString.call.bind(strToString),
-// The try-catch-finally construct has a significant performance impact due to
-// the fact that it creates and destroys a variable at runtime; yet we are
-// compelled to use it to thwart @@toStringTag spoofing.
-// Furthermore IE didn’t support it until version 5.
-        hasToStringTag  = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol',
+// The try-catch-finally construct may render the function holding it
+// unoptimizable. It's being extracted to avoid the inherent performance hit.
         isString        = function(str) {
         /*@cc_on
+// Furthermore IE didn’t support it until version 5.
           @if (@_jscript_version >= 5) @*/
           try {
 // String.prototype.toString throws if str's [[StringData]] internal slot is
@@ -32,11 +28,11 @@ String.isString = (function() {
         return  typeof str === 'string' ||
                 (str && typeof str === 'object' &&
                 /*@cc_on
-// IE didn't support Function.prototype.call until version 5.5
+// IE didn't support Function.prototype.call until version 5.5.
                   @if (@_jscript_version < 5.5)
                     /^\s*function\s*String\(\)\s*{\s*\[native code\]\s*}\s*$/.test(str.constructor)
                   @else @*/
-                    hasToStringTag ? isString(str) : ((objToStrCall && objToStrCall(str)) || objToString.call(str)) === '[object String]'
+                    isString(str)
                   /*@end
                 @*/
 // fallback for falsy values
