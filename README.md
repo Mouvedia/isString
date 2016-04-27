@@ -1,4 +1,7 @@
-<a href="http://www.npm-stats.com/~packages/isstring">![npm](https://img.shields.io/npm/dm/isstring.svg)</a>
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/isString.svg)](https://saucelabs.com/u/isString)
+<a href="http://www.npm-stats.com/~packages/isstring">
+  <img align="right" alt="download counter" src="https://img.shields.io/npm/dm/isstring.svg" />
+</a>
 
 # isString
 
