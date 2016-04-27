@@ -4,7 +4,7 @@
   else if (typeof exports === 'object' && !!exports && !exports.nodeType)
     module.exports = factory();
   else if (typeof YUI === 'function' && YUI.add)
-    YUI.add('isString', factory, '1.0.6');
+    YUI.add('is-string', factory, '1.0.6');
   else
     String.isString = factory();
 })(function () {
