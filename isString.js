@@ -1,10 +1,8 @@
-/*jshint expr:true*/
-
-String.isString = (function() {
+String.isString = (function () {
     var strToString     = ('').toString,
         hasBind         = Function.prototype && Function.prototype.bind,
         strToStrCall    = hasBind && strToString.call.bind(strToString),
-        isString        = function(str) {
+        isString        = function (str) {
         /*@cc_on
           @if (@_jscript_version >= 5) @*/
             try {
@@ -17,7 +15,7 @@ String.isString = (function() {
         @*/
         };
 
-    return function(str) {
+    return function (str) {
         return  typeof str === 'string' ||
                 (str && typeof str === 'object' &&
                 /*@cc_on

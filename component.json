@@ -1,9 +1,11 @@
 {
   "name": "isstring",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "repository": "Mouvedia/isString",
   "main": "isString.umd.js",
   "scripts" : [
+	"isString.js",
+	"isString.min.js",
 	"isString.umd.js"
   ],
   "moduleType": [
