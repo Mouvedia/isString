@@ -7,7 +7,7 @@
     else
       exports['default'] = factory();
   else if (typeof YUI === 'function' && YUI.add)
-    YUI.add('is-string', function (Y) { Y['default'] = factory(); }, '1.0.7');
+    YUI.add('is-string', function (Y) { Y.isString = factory(); }, '1.0.8');
   else
     String.isString = factory();
 })(function () {
